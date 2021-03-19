@@ -5,7 +5,7 @@ content = [
 			'🙂‼️',
 			'🙂‼️'
 		],
-		
+
 		text: [
 			'i’m so glad you came.', 
 			'the situation is urgent.',
@@ -19,6 +19,7 @@ content = [
 			"let's get started. please choose an option."
 		],
 
+		choices:[],
 		responses: [
 			"ah. so you’re apolitical.",
 			"it is O.K. to be white",

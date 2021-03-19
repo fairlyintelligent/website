@@ -1,5 +1,48 @@
 <html>
+
+	<style>
+
+		@font-face {
+			font-family: 'Darker Grotesque';
+			src: url("assets/DarkerGrotesque-Regular.ttf") format("ttf");
+		}
+		body {
+			background:rgb(72, 149, 239);
+			color:white;
+			font-family: 'Darker Grotesque', sans-serif;
+			font-size:2em;
+		}
+
+		#emoji {
+			font-size:5em;
+			margin:0 auto;
+			width:100%;
+			text-align:center;
+			margin-top:100px;
+		}
+
+		#prompt {
+			text-align: center;
+		}
+	</style>
 	<body>
-		<h1>🙂</h1>
+		<div id='emoji'>🙂</div>
+		<div id='prompt'></div>
 	</body>
+	<script>
+
+		var i = 0;
+		var txt = 'Coming soon'; /* The text */
+		var speed = 150; /* The speed/duration of the effect in milliseconds */
+		const promptText = document.getElementById("prompt");
+		function typeWriter() {
+		  if (i < txt.length) {
+		    promptText.innerHTML += txt.charAt(i);
+		    i++;
+		    setTimeout(typeWriter, speed);
+		  }
+		}
+
+		typeWriter()
+	</script>
 </html>
