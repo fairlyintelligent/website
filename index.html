@@ -1,4 +1,5 @@
 <html>
+	<script src="d3.js"></script>
 
 	<style>
 
@@ -6,6 +7,7 @@
 			font-family: 'Darker Grotesque';
 			src: url("assets/DarkerGrotesque-Regular.ttf") format("ttf");
 		}
+
 		body {
 			background:rgb(72, 149, 239);
 			color:white;
@@ -19,30 +21,143 @@
 			width:100%;
 			text-align:center;
 			margin-top:100px;
+			font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol
 		}
 
 		#prompt {
 			text-align: center;
+			width:50%;
+			margin:0 auto;
+			margin-bottom: 10vh;
+		}
+
+		.choice {
+			display:inline-block;
+			text-align: center;
+			cursor:hand;
+			font-family: apple color emoji,segoe ui emoji,sans-serif, noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol
 		}
 	</style>
+	<script src='content.js'></script>
 	<body>
 		<div id='emoji'>🙂</div>
 		<div id='prompt'></div>
+		<div id='options'></div>
+
 	</body>
 	<script>
 
-		var i = 0;
-		var txt = 'Coming soon'; /* The text */
-		var speed = 150; /* The speed/duration of the effect in milliseconds */
-		const promptText = document.getElementById("prompt");
-		function typeWriter() {
-		  if (i < txt.length) {
-		    promptText.innerHTML += txt.charAt(i);
-		    i++;
-		    setTimeout(typeWriter, speed);
-		  }
+		var app = {
+
+			promptElement: document.getElementById("prompt"),
+			emojiElement: document.getElementById('emoji'),
+			defaultEmoji: '🙂',
+			state: {
+				slide: 0,
+				step:-1,
+				// userPronoun: undefined,
+				skinTone: undefined
+			},
+
+			step: step => {
+
+				var slide = app.state.slide;
+				app.state.step = step;
+
+				const currentSlide = content[slide];
+
+				app.buildOptions(currentSlide.choices)
+
+				// if slide is response to previous question
+				if (currentSlide.responses) {
+
+					if (app.state.step>0) {
+						app.slide(slide+1);
+						return
+					}
+
+					else {
+						console.log('typing response')
+						typeText(currentSlide.responses[app.state[currentSlide.property]])
+						return
+					}
+				}
+
+				const nextText = currentSlide.text[step];
+
+				if (!nextText) {
+					app.slide(slide+1);
+					return
+				}
+
+				typeText(nextText);
+				app.emojiElement.innerHTML = currentSlide.emoji[step] || app.defaultEmoji;
+
+			},
+
+			currentSlide: () => content[app.state.slide],
+
+			buildOptions: choices => {
+				console.log('buildingoptions', choices)
+				d3.selectAll('#options .choice')
+					.remove()
+
+				if (choices) {
+
+					const values = choices.values === 'likert' ? new Array(7).fill('◦') : choices.values
+					d3.select('#options')
+						.selectAll('.choice')
+						.data(values)
+						.enter()
+						.append('div')
+						.attr('class', 'choice')
+						.text(d=>d)
+						.style('width', `${100/values.length}%`)
+						.on('click', (d, i) => {
+							app.state[choices.property] = i;
+							app.slide(app.state.slide+1)
+						})
+				}
+			},
+
+			slide: slide => {
+				console.log('new slide', slide)
+				app.state.slide = slide;
+				app.promptElement.innerHTML = ''
+				app.step(0);
+			},
+
+			init: () => {
+				app.step(app.state.step+1);
+
+				document.addEventListener('keydown', e => {
+
+					const desiredKey = e.which === 39;
+					const currentlyTyping = app.state.typing;
+					const decisionPoint = app.currentSlide().choices;
+					if (!desiredKey || currentlyTyping || decisionPoint) return 
+					app.step(app.state.step+1);
+				})
+			}
 		}
 
-		typeWriter()
+		const typeText = (text) => {
+
+			var i = 0;
+			app.state.typing = true;
+
+			function typeWriter() {
+			  if (i < text.length) {
+			    app.promptElement.innerHTML += text.charAt(i);
+			    i++;
+			    setTimeout(typeWriter, 5);
+			  }
+
+			  else app.state.typing = false;
+			}
+			typeWriter()
+		}
+
+		app.init();
 	</script>
 </html>
