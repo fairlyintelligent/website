@@ -832,9 +832,10 @@ e2: https://prettydarke.files.wordpress.com/2021/05/e2.mp3
 e3: https://prettydarke.files.wordpress.com/2021/05/e3.mp3
 e4: https://prettydarke.files.wordpress.com/2021/05/e4.mp3
 e5: https://prettydarke.files.wordpress.com/2021/05/e5.mp3
+orange: https://prettydarke.files.wordpress.com/2021/05/orange1.mp3
 terror: https://prettydarke.files.wordpress.com/2021/05/terror1.mp3
-topwhite: https://prettydarke.files.wordpress.com/2021/05/topwhite1.mp3
-hot: https://prettydarke.files.wordpress.com/2021/05/hot.mp3
+topwhite: https://prettydarke.files.wordpress.com/2021/05/topw.mp3
+hot: https://prettydarke.files.wordpress.com/2021/05/hot1.mp3
 perms: https://prettydarke.files.wordpress.com/2021/05/perms.mp3
 check: https://prettydarke.files.wordpress.com/2021/05/check.mp3
 mand: https://prettydarke.files.wordpress.com/2021/05/mand.mp3
@@ -1681,6 +1682,11 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
@@ -1692,6 +1698,11 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
@@ -1703,6 +1714,11 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
@@ -1714,6 +1730,11 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
@@ -1725,6 +1746,11 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
@@ -1736,6 +1762,11 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
@@ -1746,10 +1777,15 @@ final question. who&#39;s hotter?
 		]
   		(else:)[
         (replace:?msg)[i&#39;m sorry, but you have to make a selection.]
+		(unless: (track: &#39;mand&#39;, &#39;isplaying&#39;))[
+    (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mand&#39;, &#39;loop&#39;, false)
+    (track: &#39;mand&#39;, &#39;play&#39;)
+]
 		]
   	]
 ]
-} 
+}  
 
 (unless: (track: &#39;techsex&#39;, &#39;isplaying&#39;))[
     (group: &#39;playing&#39;, &#39;stop&#39;)
