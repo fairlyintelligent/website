@@ -20,6 +20,10 @@ tw-story {
   text-align: center;
 }
 
+tw-sidebar {
+  display: none;
+}
+
 html tw-link, .enchantment-link {
   color: #FFE085;
 }
@@ -2497,7 +2501,7 @@ based on your responses, fairly intelligent^^&lt;img class=&quot;tm&quot; img sr
 ]
 	
 (if: $billi is &quot;trans&quot;)[
-	(set: $tragic)
+	(set: $tragic to true)
 	(checkbox: 2bind $tragic, &quot;tragic&quot;)
 ]
 
@@ -3833,7 +3837,7 @@ just need you to sign-off before we proceed to the last question.
 
 (checkbox: 2bind $pp1, &quot;sell it to predictive policing companies&quot;)
 
-(checkbox: 2bind $pp2, &quot;sell it to dating apps to rate your attractivess&quot;)
+(checkbox: 2bind $pp2, &quot;sell it to dating apps to rate your attractiveness&quot;)
 
 (checkbox: 2bind $pp3, &quot;sell it to ICE to keep immigrants in jail&quot;)
 
