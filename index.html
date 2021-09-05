@@ -3577,15 +3577,14 @@ can you hear me?
 		(group: &#39;playing&#39;, &#39;stop&#39;)
 	]
 	(replace: ?msg)[
-	great. the audio controls are always at the &lt;tw-link onclick=&quot;window.scroll(0,0)&quot; tabindex=&quot;0&quot;&gt;top&lt;/tw-link&gt; of the page.
+	great. the &lt;tw-link onclick=&quot;window.scroll(0,0)&quot; tabindex=&quot;0&quot;&gt;audio controls&lt;/tw-link&gt; are always at the top of the page.
 	
-	when you&#39;re ready, please continue.
+	
 	
 	
 	]
-	(click: &quot;continue.&quot;)[
+	(click: &quot;audio controls&quot;)[
 		(show: ?access)
-		
 	]
 ]
 =|==
@@ -3596,6 +3595,7 @@ can you hear me?
     	(track: &#39;miccheck&#39;, &#39;play&#39;)
 	]
 	(hide: ?b2)
+	(hide: ?access)
 	(replace: ?msg)[
 	try fiddling with your audio. the controls can always be found at the &lt;tw-link onclick=&quot;window.scroll(0,0)&quot; tabindex=&quot;0&quot;&gt;top&lt;/tw-link&gt; of the page.
 	
@@ -3648,10 +3648,9 @@ can you hear me?
 }] flashing lights ok
 	|==|	
 ]
-|b2)[ [[&lt;img class=&quot;nav&quot; img src=&quot;https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/backhand-index-pointing-right_1f449.png&quot;&gt;-&gt;welcome]]
+|b2)[ there&#39;s also a &lt;b&gt;privacy statement,&lt;/b&gt; but it&#39;s boring and who even reads those things?
 
-
-there&#39;s also a &lt;b&gt;privacy statement,&lt;/b&gt; but it&#39;s boring and who even reads those things?
+[[&lt;img class=&quot;nav&quot; img src=&quot;https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/backhand-index-pointing-right_1f449.png&quot;&gt;-&gt;welcome]]
 ]
 
 (click: &quot;hear&quot;)[	
@@ -3667,7 +3666,10 @@ there&#39;s also a &lt;b&gt;privacy statement,&lt;/b&gt; but it&#39;s boring and
 	(set: $pnotice to true)
 	(open-url: &quot;https://fairlyintelligent.tech/privacy&quot;)
 ]	
-	
+
+
+
+
 	</tw-passagedata><tw-passagedata pid="76" name="can&#39;t punch nazis" tags="" position="1826,338" size="100,100">
 
 I prefer to limit my interaction with fascists to watching them get &lt;div style=&quot;display: inline-block&quot;&gt;|fash&gt;[(text-colour:#ffe085)[~~?#@*&amp;%! to songs from the 80s~~]],&lt;/div&gt;
